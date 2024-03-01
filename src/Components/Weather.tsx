@@ -12,7 +12,6 @@ import { Box, Grid, Typography } from "@mui/material";
 import WeatherNews from "./WeatherNews";
 import styled, { keyframes } from "styled-components";
 
-// Define the keyframes for the animations
 const typewriter = keyframes`
   from { width: 0; }
   to { width: 55%; }
@@ -23,7 +22,6 @@ const blinkTextCursor = keyframes`
   to { border-right-color: transparent; }
 `;
 
-// Create a styled component for the Typography
 const StyledTypography = styled(Typography)`
   color: #fff;
   font-weight: bold !important;
@@ -45,15 +43,12 @@ const Weather: React.FC = () => {
   const handleSearch = async (searchCity: string = city) => {
     if (!searchCity) return;
     try {
-      // Fetch current weather
       const weatherData = await fetchWeatherData(searchCity);
       setWeather(weatherData);
-      // Fetch forecast
       const forecastData = await fetchForecastData(searchCity);
       setForecast(forecastData);
-      // Reset UI
-      setCity(searchCity); // Optionally, update the input field to show the searched city
-      setSuggestions([]); // Clear suggestions if any
+      setCity(searchCity);
+      setSuggestions([]);
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
@@ -68,7 +63,7 @@ const Weather: React.FC = () => {
     const debounce = setTimeout(() => {
       fetchCitySuggestions(city).then(setSuggestions).catch(console.error);
     }, 300);
-    return () => clearTimeout(debounce); // Cleanup function to cancel the timeout if the component unmounts
+    return () => clearTimeout(debounce); 
   }, [city]);
 
   return (

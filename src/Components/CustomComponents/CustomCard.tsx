@@ -3,7 +3,7 @@ import { Card, CardContent } from '@mui/material';
 
 interface CustomCardProps {
   children: React.ReactNode;
-  style?: React.CSSProperties; // Optional prop for custom styling
+  style?: React.CSSProperties;
 }
 
 const CustomCard: React.FC<CustomCardProps> = ({ children, style }) => {

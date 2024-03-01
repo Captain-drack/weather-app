@@ -25,8 +25,8 @@ const StyledButton = styled(Button)`
 
 interface SearchBarProps {
   city: string;
-  suggestions: any[]; // Ideally, specify a more accurate type
-  onCityChange: (value: string) => void; // Adjusted to directly pass string value
+  suggestions: any[]; 
+  onCityChange: (value: string) => void; 
   onSearch: () => void;
   onSelectSuggestion: (cityName: string) => void;
 }
@@ -41,7 +41,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-    onCityChange(capitalizedValue); // Call the prop function with the capitalized value
+    onCityChange(capitalizedValue);
   };
 
   return (
@@ -68,7 +68,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             sx={{
               backgroundColor: "#ffffff",
               '&:hover': {
-                backgroundColor: "#f0f0f0", // Light grey hover effect, adjust color as desired
+                backgroundColor: "#f0f0f0",
               },
               cursor: "pointer",
             }}
